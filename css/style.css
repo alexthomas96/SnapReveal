@@ -82,7 +82,7 @@ margin: 0 auto;
 }
 
 .hex h1, .hex p {
-font-size: 14px;
+font-size: 10px;
 width: 100%;
 padding: 5%;
 box-sizing:border-box;
@@ -96,7 +96,7 @@ text-transform: capitalize;
   text-align: center;
 bottom: 50%;
 padding-top:50%;
-font-size: 1.5em;
+font-size: 1em;
 z-index: 1;
 }
 .hex h1:before, .hex h1:after {
