@@ -1,5 +1,6 @@
 # SnapReveal
 Flag reveal website designed for Avengers themed CTF.
+[Demo](https://adershmanoj.github.io/SnapReveal)
 # Getting stated
   1. Clone the repo
   `git clone https://github.com/adershmanoj/SnapReveal.git`
@@ -8,7 +9,8 @@ Flag reveal website designed for Avengers themed CTF.
 # Authors
 * **Adersh Manoj**
 * **Alex Thomas**
-#Acknowledgments
+
+# Acknowledgments
 _will be updated soon_
 
 
