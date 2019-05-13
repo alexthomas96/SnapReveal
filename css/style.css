@@ -1,0 +1,558 @@
+/* canvas {
+  padding:0;
+  margin:0;
+  width:100%;
+  height:100%;
+}
+ */
+body {
+  background-color:black; 
+}
+
+#hexGrid {
+display: flex;
+flex-wrap: wrap;
+width: 90%;
+margin: 0 auto;
+overflow: hidden;
+font-family: sans-serif;
+list-style-type: none;
+position: absolute;
+z-index: 2;
+width: 50%;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+.hex {
+position: relative;
+visibility:hidden;
+outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+transition: all 0.5s;
+backface-visibility: hidden;
+will-change: transform;
+transition: all 0.5s;
+}
+.hex::after{
+content:'';
+display:block;
+padding-bottom: 86.602%;  /* =  100 / tan(60) * 1.5 */
+}
+.hexIn{
+position: absolute;
+width:96%;
+padding-bottom: 110.851%; /* =  width / sin(60) */
+margin: 2%;
+overflow: hidden;
+visibility: hidden;
+outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+-webkit-transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+    -ms-transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+        transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+  transition: all 0.5s;
+}
+.hexIn * {
+position: absolute;
+visibility: visible;
+outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+}
+.hexLink {
+  display:block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  -webkit-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
+      -ms-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
+          transform: skewY(-30deg) rotate3d(0,0,1,60deg);
+}
+
+
+
+
+/*** HEX CONTENT **********************************************************************/
+.hex img {
+left: -100%;
+right: -100%;
+width: auto;
+height: 100%;
+margin: 0 auto;
+}
+
+.hex h1, .hex p {
+font-size: 14px;
+width: 100%;
+padding: 5%;
+box-sizing:border-box;
+font-weight: 300;
+opacity: 0;
+}
+
+#demo1 {
+color: #F5CE95;
+text-transform: capitalize;
+  text-align: center;
+bottom: 50%;
+padding-top:50%;
+font-size: 1.5em;
+z-index: 1;
+}
+.hex h1:before, .hex h1:after {
+display: inline-block;
+margin: 0 0.5em;
+width: 0.25em;
+height: 0.03em;
+background: #ffffff;
+content: '';
+vertical-align: middle;
+transition: all 0.3s;
+text-align:center;
+}
+
+#demo2 {
+top: 50%;
+text-align: center;
+}
+
+.img {
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+background-position: center center;
+background-size: cover;
+overflow: hidden;
+-webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.img:before, .img:after {
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+content: '';
+opacity: 0;
+transition: opacity 0.5s;
+}
+.img:before {
+background: rgba(22, 103, 137, 0.3)
+}
+.img:after {
+background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.5), transparent);
+}
+
+/*** HOVER EFFECT  **********************************************************************/
+
+
+
+.hexLink:hover h1, .hexLink:focus h1,
+.hexLink:hover p, .hexLink:focus p{
+opacity:1;
+transition: 0.8s;
+}
+
+
+.hexIn:hover .img:before,
+.hexIn:hover .img:after,
+.hexIn:hover .hexLink {
+opacity: 1;
+}
+
+
+/*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
+@media (min-width:1201px) { /* <- 5-4  hexagons per row */
+#hexGrid{
+  padding-bottom: 4.4%
+}
+.hex {
+  width: 20%; /* = 100 / 5 */
+}
+.hex:nth-child(9n+6){ /* first hexagon of even rows */
+  margin-left:10%;  /* = width of .hex / 2  to indent even rows */
+}
+}
+
+@media (max-width: 1200px) and (min-width:901px) { /* <- 4-3  hexagons per row */
+#hexGrid{
+  padding-bottom: 5.5%;
+  font-size: 13px;
+}
+.hex {
+  width: 25%; /* = 100 / 4 */
+}
+.hex:nth-child(7n+5){ /* first hexagon of even rows */
+  margin-left:12.5%;  /* = width of .hex / 2  to indent even rows */
+}
+}
+
+@media (max-width: 900px) and (min-width:601px) { /* <- 3-2  hexagons per row */
+#hexGrid{
+  padding-bottom: 7.4%;
+  font-size: 14px;
+}
+.hex {
+  width: 33.333%; /* = 100 / 3 */
+}
+.hex:nth-child(5n+4){ /* first hexagon of even rows */
+  margin-left:16.666%;  /* = width of .hex / 2  to indent even rows */
+}
+}
+
+@media (max-width: 600px) { /* <- 2-1  hexagons per row */
+#hexGrid{
+  padding-bottom: 11.2%;
+  font-size: 12px;
+}
+.hex {
+  width: 50%; /* = 100 / 3 */
+}
+.hex:nth-child(3n+3){ /* first hexagon of even rows */
+  margin-left:25%;  /* = width of .hex / 2  to indent even rows */
+}
+}
+
+@media (max-width: 400px) {
+  #hexGrid {
+      font-size: 8px;
+  }
+
+}
+
+
+.infinity {
+  position: absolute;
+  top: 0;
+  left: -12px;
+  height: 80px;
+  width: 80px;
+  transition: all .5s ease-in-out;
+  user-select: none;
+  -moz-user-select: none;
+}
+
+.glow-div {
+  position: absolute;
+  min-height: 50px;
+  width: 100px;
+  border-radius: 50%;
+  z-index: 2;
+  top: 85vh;
+  left: 48%;
+  transition: transform 1s ease;
+}
+
+.glow-div:hover {
+  transform: scale(1.2);
+}
+
+
+
+.snap {
+  position: absolute;
+  top: 0;
+  left: -12px;
+  height: 80px;
+  width: 80px;
+  background-image: url('https://www.google.com/logos/fnbx/thanos/thanos_snap.png');
+  background-position: left;
+  background-repeat: no-repeat;
+  animation: snaps 1s steps(47);
+}
+
+
+.hide {
+  display: none;
+}
+
+@keyframes snaps {
+  from {
+    background-position: left;
+  }
+  to {
+    background-position: right;
+  }
+}
+
+.content {
+  position: static;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.dust {
+  position: absolute;
+  transform: scale(0);
+}
+
+/* Flag styles */
+
+.sign-wrap {
+  display: inline-block;
+  padding: 20px;
+  border-radius: 28px;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  opacity: 0;
+  transition: opacity 10s ease-in;
+
+}
+
+.sign {
+  display: inline-block;
+  padding: 60px 60px;
+  border-radius: 20px;
+  -webkit-filter: blur(0.75px);
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.7), 0px 0px 0px 5px red, 0px 0px 0px 3px red inset, 0px 0px 60px rgba(255, 0, 0, 0.5), 0px 0px 60px rgba(255, 0, 0, 0.5) inset;
+}
+
+.sign h1 {
+  font-family: avenir, sans-serif;
+  font-size: 2em;
+  line-height: 0px;
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke-width: 6px;
+  -webkit-text-stroke-color: #2b2b2b;
+  position: relative;
+  text-transform: uppercase;
+  text-shadow: 0px 10px 3px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.2em
+}
+.sign h1:before {
+  content: "Vedan Abhijith";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: rgba(43, 44, 45, 0.1);
+  text-shadow: 0px 0px 60px rgba(255, 51, 51, 0.7);
+  -webkit-text-stroke-width: 6px;
+  -webkit-text-stroke-color: red;
+  -webkit-animation: flicker 20s linear infinite;
+  -moz-animation: flicker 20s linear infinite;
+  animation: flicker 20s linear infinite;
+}
+.sign h1:after {
+  content: "Vedan Abhijith";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0.8);
+  -webkit-animation: flicker 20s linear infinite;
+  -moz-animation: flicker 20s linear infinite;
+  animation: flicker 20s linear infinite;
+}
+
+@-webkit-keyframes flicker {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  11% {
+    opacity: .4;
+  }
+  11.25% {
+    opacity: .6;
+  }
+  11.5% {
+    opacity: .4;
+  }
+  18% {
+    opacity: 1;
+  }
+  18.5% {
+    opacity: .9;
+  }
+  22% {
+    opacity: 1;
+  }
+  38.5% {
+    opacity: 1;
+  }
+  39% {
+    opacity: .8;
+  }
+  42% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  60.5% {
+    opacity: 0;
+  }
+  62% {
+    opacity: 0;
+  }
+  63% {
+    opacity: .2;
+  }
+  63.25% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 1;
+  }
+  73% {
+    opacity: 1;
+  }
+  75% {
+    opacity: .8;
+  }
+  79% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes flicker {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  11% {
+    opacity: .4;
+  }
+  11.25% {
+    opacity: .6;
+  }
+  11.5% {
+    opacity: .4;
+  }
+  18% {
+    opacity: 1;
+  }
+  18.5% {
+    opacity: .9;
+  }
+  22% {
+    opacity: 1;
+  }
+  38.5% {
+    opacity: 1;
+  }
+  39% {
+    opacity: .8;
+  }
+  42% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  60.5% {
+    opacity: 0;
+  }
+  62% {
+    opacity: 0;
+  }
+  63% {
+    opacity: .2;
+  }
+  63.25% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 1;
+  }
+  73% {
+    opacity: 1;
+  }
+  75% {
+    opacity: .8;
+  }
+  79% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flicker {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  11% {
+    opacity: .4;
+  }
+  11.25% {
+    opacity: .6;
+  }
+  11.5% {
+    opacity: .4;
+  }
+  18% {
+    opacity: 1;
+  }
+  18.5% {
+    opacity: .9;
+  }
+  22% {
+    opacity: 1;
+  }
+  38.5% {
+    opacity: 1;
+  }
+  39% {
+    opacity: .8;
+  }
+  42% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  60.5% {
+    opacity: 0;
+  }
+  62% {
+    opacity: 0;
+  }
+  63% {
+    opacity: .2;
+  }
+  63.25% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 1;
+  }
+  73% {
+    opacity: 1;
+  }
+  75% {
+    opacity: .8;
+  }
+  79% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>CTF</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="css/style.css">
+
+  
+  
+      <style>
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+      * {
+  padding:0;
+  margin:0;
+}
+
+canvas {
+  padding:0;
+  margin:0;
+  width:100%;
+  height:100%;
+}
+    </style>
+
+    <script src="js/prefixfree.min.js"></script>
+
+</head>
+
+<body>
+  <div class="container">
+  <div class="grid">
+    <ul id="hexGrid">
+      <li class="hex">
+        <div class="hexIn">
+          <a class="hexLink" href="#">
+            <div class='img' style='background-image:url(img/iron_man.jpg);'></div>
+            <h1 id="demo1">Iron Man</h1>
+            <p id="demo2">Genius, Billionaire, Playboy, Philanthropist</p>
+          </a>
+        </div>
+      </li>
+        
+      <li class="hex">
+        <div class="hexIn">
+          <a class="hexLink" href="#">
+                <div class='img' style='background-image: url(img/captain_america.jpg);'></div>
+            <h1 id="demo1">Cap America</h1>
+            <p id="demo2">America's best ass / Science Experiment that wields Mjolnir(The Hammer)</p>
+          </a>
+        </div>
+      </li>
+      <li class="hex">
+        <div class="hexIn">
+          <a class="hexLink" href="#">
+                <div class='img' style='background-image: url(img/thor.jpg);'></div>
+            <h1 id="demo1">Thor</h1>
+            <p id="demo2">Strongest avenger who ripped off noobmaster69./ Point break who plays fortnite</p>
+          </a>
+        </div>
+      </li>
+      <li class="hex">
+        <div class="hexIn">
+          <a class="hexLink" href="#">
+                <div class='img' style='background-image: url(img/hulk.jpg);'></div>
+            <h1 id="demo1">Hulk</h1>
+            <p id="demo2">Nat'ty big green thing</p>
+          </a>
+        </div>
+      </li>
+      <li class="hex">
+        <div class="hexIn">
+          <a class="hexLink" href="#">
+                <div class='img' style='background-image: url(img/black_widow.jpg);'></div>
+            <h1 id="demo1">Black Widow</h1>
+            <p id="demo2">Hottie who can turn Hulk into "Touch me not plant"</p>
+          </a>
+        </div>
+      </li>
+      <li class="hex">
+        <div class="hexIn">
+          <a class="hexLink" href="#">
+              <div class="content">
+                <div class='img snapped' style='background-image: url(img/black_panther.jpg);'></div>
+            <h1 id="demo1">Black panther</h1>
+            <p id="demo2">Introduction??? We don't do that here.</p>
+              </div>
+          </a>
+        </div>
+      </li>
+      
+      <li class="hex">
+        <div class="hexIn">
+          <a class="hexLink" href="#">
+              <div class="content">
+            <div class='img snapped' style='background-image: url(img/spiderman.jpg);'></div>
+            <h1 id="demo1">Spiderman</h1>
+            <p id="demo2">Superhero kid with hot aunt</p>
+              </div>
+          </a>
+        </div>
+      </li>
+      <li class="hex">
+        <div class="hexIn">
+          <a class="hexLink" href="#">
+              <div class="content">
+            <div class='img snapped' style='background-image: url(img/dr_strange.jpg);'></div>
+            <h1 id="demo1">Dr.Strange</h1>
+            <p id="demo2">One who added 14 million views to endgame./ Stonekeeper who speaks for himself</p>
+              </div>
+          </a>
+        </div>
+      </li>
+      <li class="hex">
+        <div class="hexIn">
+          <a class="hexLink" href="#">
+              <div class="content">
+            <div class='img snapped' style='background-image: url(img/Falcon.jpg);'></div>
+            <h1 id="demo1">Falcon</h1>
+            <p id="demo2">Captain America can finally fly</p>
+              </div>
+          </a>
+        </div>
+      </li>
+      <li class="hex">
+        <div class="hexIn">
+          <a class="hexLink" href="#">
+              <div class="content">
+         <div class='img snapped' style='background-image: url(img/ScarletWitch.jpg);'></div>
+            <h1 id="demo1">Scarlet Witch</h1>
+            <p id="demo2">Witch who lost her Vision</p>
+              </div>
+          </a>
+        </div>
+      </li>
+      <li class="hex">
+        <div class="hexIn">
+          <a class="hexLink" href="#">
+              <div class="content">
+            <div class='img snapped' style='background-image: url(img/Bucky.jpg);'></div>
+            <h1 id="demo1">Bucky</h1>
+            <p id="demo2">Winter soldier who fights always during Summer</p>
+              </div>
+          </a>
+        </div>
+      </li>
+      <li class="hex">
+        <div class="hexIn">
+          <a class="hexLink" href="#">
+              <div class="content">
+            <div class='img snapped' style='background-image: url(img/StarLord.jpg);'></div>
+            <h1 id="demo1">Star Lord</h1>
+            <p id="demo2">Idiot who gave us endgame</p>
+              </div>
+          </a>
+        </div>
+      </li>
+      <li class="hex">
+        <div class="hexIn">
+          <a class="hexLink" href="#">
+              <div class="content">
+            <div class='img snapped' style='background-image: url(img/Groot.jpg);'></div>
+            <h1 id="demo1">Groot</h1>
+            <p id="demo2">I'm Groot</p>
+              </div>
+          </a>
+        </div>
+      </li>
+      
+     <li class="hex">
+        <div class="hexIn">
+          <a class="hexLink" href="#">
+              <div class="content">
+              <div class='img snapped' style='background-image:url(img/Fury.jpg);'></div>
+            <h1 id="demo1">Nick Fury</h1>
+            <p id="demo2">Last time I trusted someone I lost an eye</p>
+              </div>
+          </a>
+        </div>
+      </li>
+        <li class="hex">
+        <div class="hexIn">
+          <a class="hexLink" href="#">
+            <div class='img' style='background-image: url(img/hawkeye.jpg);'></div>
+            <h1 id="demo1">Hawkeye</h1>
+            <p id="demo2">Best archer ever yet runs out of arrows all the time</p>
+          </a>
+        </div>
+      </li>
+          <li class="hex">
+        <div class="hexIn">
+          <a class="hexLink" href="#">
+                <div class='img' style='background-image: url(img/ant_man.jpeg);'></div>
+            <h1 id="demo1">Ant Man</h1>
+            <p id="demo2">Got saved by a Rat to save the world</p>
+          </a>
+        </div>
+      </li>
+        <li class="hex">
+        <div class="hexIn">
+          <a class="hexLink" href="#">
+            <div class='img ' style='background-image: url(img/Rocket.jpg);'></div>
+            <h1 id="demo1">Rocket</h1>
+            <p id="demo2">Guardian, fur face, Sweet rabbit</p>
+          </a>
+        </div>
+      </li>
+        <li class="hex">
+        <div class="hexIn">
+          <a class="hexLink" href="#">
+            <div class='img' style='background-image: url(img/CaptainMarvel.jpg);'></div>
+            <h1 id="demo1">Cap Marvel</h1>
+            <p id="demo2">We like this one</p>
+          </a>
+        </div>
+      </li>
+    </ul>
+      </div>
+      <div class="glow-div">
+        <img class='infinity' src="https://www.google.com/logos/fnbx/thanos/thanos_idle.png" />
+        <div class='snap hide'></div>
+      </div>
+    </div>
+      <div class="sign-wrap">
+          <div class="sign">
+             <h1>Vedan Abhijith</h1> <!--change h1:before and h1:after in css to change content -->
+          </div>
+          </div>
+  <canvas id="starfield"></canvas>
+  
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/chance.min.js"></script>
+    <script src="js/html2canvas.js"></script>
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
