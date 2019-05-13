@@ -307,7 +307,7 @@ opacity: 1;
 
 .sign {
   display: inline-block;
-  padding: 60px 60px;
+  padding: 40px 40px;
   border-radius: 20px;
   -webkit-filter: blur(0.75px);
   box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.7), 0px 0px 0px 5px red, 0px 0px 0px 3px red inset, 0px 0px 60px rgba(255, 0, 0, 0.5), 0px 0px 60px rgba(255, 0, 0, 0.5) inset;
@@ -327,7 +327,7 @@ opacity: 1;
   letter-spacing: 0.2em
 }
 .sign h1:before {
-  content: "Vedan Abhijith";
+  content: "Flag goes here";
   position: absolute;
   top: 0;
   left: 0;
@@ -340,7 +340,7 @@ opacity: 1;
   animation: flicker 20s linear infinite;
 }
 .sign h1:after {
-  content: "Vedan Abhijith";
+  content: "Flag goes here";
   position: absolute;
   top: 0;
   left: 0;
