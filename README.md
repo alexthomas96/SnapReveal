@@ -8,9 +8,11 @@ Flag reveal website designed for Avengers themed CTF.
   3. Click the thanos glove and watch half the Avengers turn to dust to reveal the flag.
 # Authors
 * **Adersh Manoj**
-* **Alex Thomas**
+* **Alex Thomas** [GitHub](https://github.com/alexthomas96)
 
 # Acknowledgments
-_will be updated soon_
-
-
+* [Canvas Starfield](https://codepen.io/Sonick/pen/HDngF)
+* [Hexagonal Responsive Grid](https://codepen.io/adamriguez/pen/eRaXeq)
+* [Neon Sign](https://codepen.io/patrickhill/pen/qvIeJ)
+* [Thanos Snap Effect JavaScript Tutorial](https://redstapler.co/thanos-snap-effect-javascript-tutorial)
+* Image courtesy : Google
