@@ -50,7 +50,7 @@ var url = document.location.href,
     y = 0,
     z = 0,
     star_color_ratio = 0,
-    star_x_save, star_y_save, star_ratio = 115,
+    star_x_save, star_y_save, star_ratio = 50,
     star_speed = 1,
     star_speed_save = 0,
     star = new Array(n),
@@ -81,7 +81,7 @@ function snapDat() {
 
 //Snap animation
 //var imageDataArray = [];
-var canvasCount = 4;
+var canvasCount = 7;
 $(".glow-div").click(function(){
 $('.sign-wrap').css('opacity', '1');
 (async function loop() {
@@ -124,7 +124,7 @@ function thanos(snapElement, snapIndex) {
 
     }
     //clear all children except the canvas
-    $(snapElement).parent().children().not(".dust").fadeOut(1500);
+    $(snapElement).parent().children().not(".dust").fadeOut(700);
     //apply animation
     $(".dust").each(function(index){
       animateBlur($(this),0.8,800);
